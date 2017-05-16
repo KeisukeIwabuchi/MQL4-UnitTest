@@ -31,13 +31,13 @@ UnitTestクラスは設定ファイルを順に読み込み、テストを繰り
 UnitTestクラスのオブジェクトを作成したら準備完了です。  
 
 単一の値の確認を行うには、TestValueメソッドにチェックしたい関数の実行結果と、結果の想定値を渡します。  
-`test.TestValue(result, expected);`
+`test.TestValue(result, expected);`   
 実行結果が配列の場合は、TestArrayメッソドを使用します。  
 
 実行結果がdouble型やfloat型の場合、誤差が発生する可能性があります。  
 その場合は第一引数に、小数点以下の桁数を指定することができます。  
-`test.TestValue(3, result, expected);`
-
+`test.TestValue(3, result, expected);`   
+   
 上記の処理を繰り返し、全パターンの確認が完了したら作成したオブジェクトをdeleteして下さい。  
 結果がターミナルのエキスパートタブへ出力されます。
 
