@@ -5,25 +5,23 @@ MQL4で単体テストをするためのモジュール
 
 ## Description
 MT4は口座毎に様々な環境がある。  
-全ての環境で正しく動作するかを確認するのは非常に手間がかかる。  
-複数の環境を一括でテストするために、環境設定ファイルを使用する。  
+全ての環境で正しく動作するかを確認するには、作成したファイルを複数のMT4に設置してテストする必要があり、非常に手間がかかる。  
+そこで複数の環境を一括でテストするために、環境設定ファイルを使用する。  
 
 まず口座ごとの違いを環境設定ファイルに記述しておく。  
 UnitTestクラスは設定ファイルを順に読み込み、テストを繰り返す。  
-読み込まれた設定は、defines.mqhによって定義値へと反映される。  
+読み込まれた設定は、MQL4-Envによって定義値へと反映される。  
 これにより所定の定義値を使って作られた関数を、複数の環境で一括にテストすることができる。  
 例) \_Symbolの代わりに、\_\_Symbolを使う
 
 
-## Install
-### Env.mqhとSymbolSearch.mqhの準備
-事前にEnv.mqhとSymbolSearch.mqhを用意する必要があります。  
-この2つのファイルは下記のリポジトリからダウンロードできます。
-[MQL4-configuration-file](https://github.com/KeisukeIwabuchi/MQL4-configuration-file)
+## Requirement
+- [MQL4-Env](https://github.com/KeisukeIwabuchi/MQL4-Env)
 
-### UnitTest.mqhとdefines.mqhの準備
-1. UnitTest.mqhとdefines.mqhをダウンロード
-2. <Your Data Folder>/MQL4/Includesの中に保存
+
+## Install
+1. UnitTest.mqhをダウンロード
+2. データフォルダを開き、/MQL4/Includes/mql4_modules/UnitTest/UnitTest.mqhとして保存
 
 
 ## Usage
@@ -44,8 +42,7 @@ UnitTestクラスのオブジェクトを作成したら準備完了です。
 オブジェクトを作成する際に、第一引数にテスト名を、第二引数に環境設定ファイルのパスを指定できます。  
 第二引数は省略可能で、省略した場合は環境設定ファイルは使用せず、現在の口座の情報でテストが実行されます。
 
-sample.mq4
-```
+``` cpp
 #property strict
 
 #include <UnitTest.mqh>
