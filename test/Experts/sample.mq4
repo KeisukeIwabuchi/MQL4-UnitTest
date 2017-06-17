@@ -1,6 +1,12 @@
+//+------------------------------------------------------------------+
+//|                                                       sample.mqh |
+//|                                 Copyright 2017, Keisuke Iwabuchi |
+//|                                        https://order-button.com/ |
+//+------------------------------------------------------------------+
 #property strict
 
-#include <UnitTest.mqh>
+
+#include <mql4_modules\UnitTest\UnitTest.mqh>
 
 
 UnitTest *test;
