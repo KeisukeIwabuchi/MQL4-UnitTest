@@ -1,18 +1,18 @@
 # MQL4-UnitTest
-MQL4で単体テストをするためのモジュール  
-関数単位で実行結果と予想値が一致しているかを確認するのに使用する。  
+MQL4 Unit testing mudle.  
 
 
 ## Description
-MT4は口座毎に様々な環境がある。  
-全ての環境で正しく動作するかを確認するには、作成したファイルを複数のMT4に設置してテストする必要があり、非常に手間がかかる。  
-そこで複数の環境を一括でテストするために、環境設定ファイルを使用する。  
+MT4 has varous environment for each accounts.  
+In order to check whether it works correctly in all environments, it is necessary to install the created file in multiple MT4 and test it.  
+It takes a lot of time.  
+Therefore, in order to test a plurality of environments collectively, the environment setting file is used.
 
-まず口座ごとの違いを環境設定ファイルに記述しておく。  
-UnitTestクラスは設定ファイルを順に読み込み、テストを繰り返す。  
-読み込まれた設定は、MQL4-Envによって定義値へと反映される。  
-これにより所定の定義値を使って作られた関数を、複数の環境で一括にテストすることができる。  
-例) \_Symbolの代わりに、\_\_Symbolを使う
+First, describe the difference for each account in the environment setting file.  
+The UnitTest class read the configuration file in order and repeated the test.　　
+The loaded value is reflected to the definition value by MQL4-Env.  
+As a result, functions created using predetermined definition values can be tested together in a plurality of environments.  
+example: \_Symbol -> \_\_Symbol
 
 
 ## Requirement
@@ -20,27 +20,28 @@ UnitTestクラスは設定ファイルを順に読み込み、テストを繰り
 
 
 ## Install
-1. UnitTest.mqhをダウンロード
-2. データフォルダを開き、/MQL4/Includes/mql4_modules/UnitTest/UnitTest.mqhとして保存
+1. Download UnitTest.mqh
+2. Save the file to /MQL4/Includes/mql4_modules/UnitTest/UnitTest.mqh
 
 
 ## Usage
-まず単体テスト用のファイルを作成して、UnitTest.mqhを読み込みます。  
-UnitTestクラスのオブジェクトを作成したら準備完了です。  
+At first, Crate the file for unit testing and include UnitTest.mqh.  
+Once you have created an object of class UnitTest it is ready.  
 
-単一の値の確認を行うには、TestValueメソッドにチェックしたい関数の実行結果と、結果の想定値を渡します。  
-`test.TestValue(result, expected);`   
-実行結果が配列の場合は、TestArrayメッソドを使用します。  
+To check a single value, pass the execution result of the function you want to check and the expected value of the result to the TestValue method.  
+`test.TestValue(result, expected);`  
+If the execution result is an array, use the TestArray method. 
 
-実行結果がdouble型やfloat型の場合、誤差が発生する可能性があります。  
-その場合は第一引数に、小数点以下の桁数を指定することができます。  
+
+When the execution result is double type or float type, errors may occur.  
+In that case, you can specify the number of decimal places in the first argument.  
 `test.TestValue(3, result, expected);`   
-   
-上記の処理を繰り返し、全パターンの確認が完了したら作成したオブジェクトをdeleteして下さい。  
-結果がターミナルのエキスパートタブへ出力されます。
+ 
+Repeat the above process, delete the created object after confirming all the patterns.  
+Output the result. 
 
-オブジェクトを作成する際に、第一引数にテスト名を、第二引数に環境設定ファイルのパスを指定できます。  
-第二引数は省略可能で、省略した場合は環境設定ファイルは使用せず、現在の口座の情報でテストが実行されます。
+When creating an object, you can specify the test name as the first argument and the path of the configuration file as the second argument.  
+The second argument is optional, and if omitted, the environment setting file is not used and the test is executed with the information of the current account.  
 
 ``` cpp
 #property strict
