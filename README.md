@@ -9,7 +9,7 @@ It takes a lot of time.
 Therefore, in order to test a plurality of environments collectively, the environment setting file is used.
 
 First, describe the difference for each account in the environment setting file.  
-The UnitTest class read the configuration file in order and repeated the test.　　
+The UnitTest class read the configuration file in order and repeated the test.  
 The loaded value is reflected to the definition value by MQL4-Env.  
 As a result, functions created using predetermined definition values can be tested together in a plurality of environments.  
 example: \_Symbol -> \_\_Symbol
@@ -21,7 +21,7 @@ example: \_Symbol -> \_\_Symbol
 
 ## Install
 1. Download UnitTest.mqh
-2. Save the file to /MQL4/Includes/mql4_modules/UnitTest/UnitTest.mqh
+2. Save the file to /MQL4/Include/mql4_modules/UnitTest/UnitTest.mqh
 
 
 ## Usage
